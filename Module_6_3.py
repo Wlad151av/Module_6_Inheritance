@@ -1,22 +1,28 @@
 class Horse:
-    sound = "Frrr"
-    x_distance = 0
+    def __init__(self):
+        self.sound = "Frrr"
+        self.x_distance = 0
     def run(self,dx):
         self.x_distance += dx
 
 class Eagle:
-    sound = "I train, eat, sleep, and repeat"
-    y_distance = 0
+    def __init__(self):
+        self.sound = "I train, eat, sleep, and repeat"
+        self.y_distance = 0
     def fly(self,dy):
         self.y_distance += dy
 
 
-class Pegasus(Eagle,Horse):
-    def __init_(self):
-        super().__init__()
+class Pegasus(Horse, Eagle):
+    def __init__(self):
+        Horse.__init__(self)
+        Eagle.__init__(self)
+        self.x_distance = 0
+        self.y_distance = 0
+
     def move(self,dx,dy):
-        super().run(dx)
-        super().fly(dy)
+        Horse.run(self,dx)  #Напрямую через родительские классы
+        Eagle.fly(self,dy)
     def get_pos(self):
         return (self.x_distance, self.y_distance)
 
