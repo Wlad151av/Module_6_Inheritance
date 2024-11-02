@@ -1,10 +1,8 @@
 class Vehicle:
     __COLOR_VARIANTS = ["BLACK","WHITE"]
-    pass
-class Sedan(Vehicle):
-    __PASSENGERS_LIMIT = 5 # only 5 passengers can be placed in sedan
+
     def __init__(self,v_name,v_mod,v_col,v_p):
-        self.owner = v_name
+        self.__owner = v_name
         self.__model = v_mod
         self.__engine_horsepower = v_p
         self.__color = v_col
@@ -32,9 +30,11 @@ class Sedan(Vehicle):
         if __vehicle_has_authentic_color:
             print(f"Нельзя сменить цвет на {new_color}")
 
+class Sedan(Vehicle):
 
-
-
+    __PASSENGERS_LIMIT = 5 # only 5 passengers can be placed in sedan
+    def Vehicle.__init__():
+        pass
 
 # Текущие цвета __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
 vehicle1 = Sedan('Fedos', 'Toyota Mark II', 'blue', 500)
